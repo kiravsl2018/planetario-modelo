@@ -1,0 +1,320 @@
+/* =========================================
+   Hoja de estilos del Planetario Estrella Polar
+   ========================================= */
+
+/* 1. Variables: los colores y medidas que se repiten */
+:root {
+  --color-fondo: #0b0e2a;
+  --color-fondo-claro: #1b1f4b;
+  --color-texto: #f1f1f8;
+  --color-principal: #ffd166;
+  --color-secundario: #7fa7ff;
+  --radio: 12px;
+}
+
+/* 2. Modelo de caja: el ancho incluye padding y borde */
+* {
+  box-sizing: border-box;
+}
+
+/* 3. Estilos generales */
+body {
+  margin: 0;
+  font-family: 'Poppins', system-ui, Arial, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-principal);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-principal);
+  line-height: 1.2;
+}
+
+/* 4. Cabecera */
+header {
+  background: linear-gradient(to right, #1b1f4b, #3a2e6e);
+  padding: 20px;
+  text-align: center;
+}
+
+.logo {
+  width: 80px;
+  animation: flotar 4s ease-in-out infinite;
+}
+
+/* 5. Barra de navegación: Flexbox + sticky */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(11, 14, 42, 0.9);
+  border-bottom: 2px solid var(--color-secundario);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+nav a {
+  display: block;
+  padding: 8px 16px;
+  color: var(--color-texto);
+  text-decoration: none;
+  border-radius: var(--radio);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+  background-color: var(--color-principal);
+  color: var(--color-fondo);
+}
+
+/* Página en la que estás */
+nav a.activo {
+  border: 2px dashed var(--color-principal);
+}
+
+/* Foco visible al navegar con el teclado (Tab) */
+a:focus,
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: 3px solid var(--color-secundario);
+}
+
+/* 6. Contenido principal */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+/* Portada con imagen de fondo */
+.portada {
+  background-image: url("../img/cielo.webp");
+  background-size: cover;
+  padding: 60px 20px;
+  border-radius: var(--radio);
+  text-align: center;
+}
+
+.estrella {
+  animation: brillar 2s ease-in-out infinite;
+}
+
+.boton {
+  display: inline-block;
+  padding: 10px 24px;
+  background-color: var(--color-principal);
+  color: var(--color-fondo);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: var(--radio);
+}
+
+/* 7. Tarjetas de constelaciones: Grid */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.tarjeta {
+  position: relative;
+  background-color: var(--color-fondo-claro);
+  padding: 16px;
+  border-radius: var(--radio);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(127, 167, 255, 0.4);
+}
+
+.tarjeta img {
+  border-radius: var(--radio);
+}
+
+/* Etiqueta "Nuevo" encima de la tarjeta */
+.etiqueta {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--color-principal);
+  color: var(--color-fondo);
+  padding: 2px 10px;
+  border-radius: var(--radio);
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Caja de dato curioso */
+.dato-curioso {
+  border: 2px dotted var(--color-secundario);
+  border-radius: var(--radio);
+  padding: 16px;
+  background-color: rgba(127, 167, 255, 0.1);
+}
+
+/* Vídeo e iframe */
+video,
+iframe {
+  width: 100%;
+  border-radius: var(--radio);
+}
+
+iframe {
+  height: 400px;
+  border: 0;
+}
+
+/* 8. Tabla de horarios */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+caption {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+th,
+td {
+  border: 1px solid var(--color-secundario);
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--color-fondo-claro);
+  color: var(--color-principal);
+}
+
+/* 9. Formulario */
+form {
+  background-color: var(--color-fondo-claro);
+  padding: 20px;
+  border-radius: var(--radio);
+}
+
+fieldset {
+  border: 1px solid var(--color-secundario);
+  border-radius: var(--radio);
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+/* Los radio y el checkbox van en la misma línea que su texto */
+.opcion {
+  display: inline;
+  margin-right: 16px;
+}
+
+/* La clase "campo" está en las cajas de texto, el select y el textarea */
+.campo {
+  width: 100%;
+  padding: 8px;
+  font-family: inherit;
+  border-radius: 6px;
+  border: 1px solid #999999;
+}
+
+button {
+  padding: 10px 24px;
+  background-color: var(--color-principal);
+  color: var(--color-fondo);
+  font-family: inherit;
+  font-weight: bold;
+  border: none;
+  border-radius: var(--radio);
+  cursor: pointer;
+}
+
+/* 10. Pie de página */
+footer {
+  background-color: var(--color-fondo-claro);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* 11. Animaciones */
+@keyframes brillar {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+@keyframes flotar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* 12. Responsive: tablet */
+@media (max-width: 800px) {
+  .tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive: móvil */
+@media (max-width: 500px) {
+  .tarjetas {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  iframe {
+    height: 220px;
+  }
+
+  .portada {
+    padding: 30px 10px;
+  }
+
+  /* La tabla se hace más compacta para que quepa en 360 px */
+  th,
+  td {
+    padding: 4px;
+    font-size: 0.8rem;
+  }
+
+  main {
+    padding: 10px;
+  }
+}

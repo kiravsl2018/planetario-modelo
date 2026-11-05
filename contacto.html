@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacta con el planetario y reserva tu visita con nuestro formulario.">
+  <title>Contacto · Planetario Estrella Polar</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="Noticias del planetario" href="noticias.xml">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <img class="logo" src="img/logo.svg" alt="Logotipo del planetario: un planeta amarillo con un anillo azul" width="80" height="80">
+    <p>Planetario Estrella Polar</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="constelaciones.html">Constelaciones</a></li>
+      <li><a href="sesiones.html">Sesiones y precios</a></li>
+      <li><a href="contacto.html" class="activo">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Contacto y reservas</h1>
+
+    <section>
+      <h2>Dónde estamos</h2>
+      <p>Calle de las Estrellas, 12 · Abierto de martes a domingo.</p>
+      <p>Correo: <a href="mailto:info@planetario-estrellapolar.es">info@planetario-estrellapolar.es</a></p>
+    </section>
+
+    <section>
+      <h2>Reserva tu visita</h2>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Tus datos</legend>
+          <label for="nombre">Nombre</label>
+          <input class="campo" type="text" id="nombre" name="nombre" required>
+
+          <label for="correo">Correo electrónico</label>
+          <input class="campo" type="email" id="correo" name="correo" required>
+
+          <label for="personas">Número de personas</label>
+          <input class="campo" type="number" id="personas" name="personas" min="1" max="30" required>
+        </fieldset>
+
+        <fieldset>
+          <legend>Tu visita</legend>
+          <label for="sesion">Sesión</label>
+          <select class="campo" id="sesion" name="sesion" required>
+            <option value="">Elige una sesión</option>
+            <option value="cielo">El cielo de esta noche</option>
+            <option value="invierno">Constelaciones de invierno</option>
+            <option value="mitos">Mitos de las estrellas</option>
+            <option value="telescopio">Noche de observación</option>
+          </select>
+
+          <p>Tipo de visita:</p>
+          <p>
+            <input type="radio" id="individual" name="tipo" value="individual" required>
+            <label class="opcion" for="individual">Individual</label>
+          </p>
+          <p>
+            <input type="radio" id="familia" name="tipo" value="familia">
+            <label class="opcion" for="familia">Familia</label>
+          </p>
+          <p>
+            <input type="radio" id="colegio" name="tipo" value="colegio">
+            <label class="opcion" for="colegio">Colegio</label>
+          </p>
+
+          <label for="mensaje">Mensaje</label>
+          <textarea class="campo" id="mensaje" name="mensaje" rows="5"></textarea>
+        </fieldset>
+
+        <p>
+          <input type="checkbox" id="acepto" name="acepto" required>
+          <label class="opcion" for="acepto">Acepto que el planetario guarde mis datos para la reserva</label>
+        </p>
+
+        <button type="submit">Enviar reserva</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Planetario Estrella Polar · Proyecto de clase de Lenguajes de Marcas.</p>
+    <p>
+      <a href="noticias.xml">Noticias (RSS)</a> ·
+      <a href="https://github.com/kiravsl2018/planetario-modelo" target="_blank" rel="noopener">Repositorio en GitHub</a>
+    </p>
+    <p>Imágenes de las constelaciones: creación propia. Libre uso para este proyecto.</p>
+  </footer>
+</body>
+</html>
