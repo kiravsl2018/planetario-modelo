@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mapa del cielo con todas las constelaciones que se pueden ver desde España, por estaciones.">
+  <title>Mapa del cielo · Planetario Estrella Polar</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="Noticias del planetario" href="noticias.xml">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <img class="logo" src="img/logo.svg" alt="Logotipo del planetario: un planeta amarillo con un anillo azul" width="80" height="80">
+    <p>Planetario Estrella Polar</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="constelaciones.html">Constelaciones</a></li>
+      <li><a href="astronomos.html">Astrónomos</a></li>
+      <li><a href="mapa.html" class="activo">Mapa del cielo</a></li>
+      <li><a href="sesiones.html">Sesiones y precios</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Mapa del cielo desde España</h1>
+    <p>Estas son las constelaciones que se pueden ver desde España a lo largo del año. El centro del mapa es la Estrella Polar; cuanto más lejos del centro, más al sur está la constelación.</p>
+
+    <section class="mapa">
+      <h2>El cielo completo</h2>
+      <a href="img/mapa-cielo.svg" target="_blank" rel="noopener">
+        <img src="img/mapa-cielo.svg" alt="Mapa circular del cielo con las constelaciones visibles desde España, unidas por líneas de colores según la estación del año, con la Estrella Polar en el centro" width="1000" height="1000">
+      </a>
+      <p>Haz clic en el mapa para abrirlo en grande.</p>
+    </section>
+
+    <section>
+      <h2>Leyenda: la mejor estación para verlas</h2>
+      <ul class="leyenda">
+        <li class="todo-el-ano">Todo el año (blanco)</li>
+        <li class="invierno">Invierno (azul)</li>
+        <li class="primavera">Primavera (verde)</li>
+        <li class="verano">Verano (naranja)</li>
+        <li class="otono">Otoño (amarillo)</li>
+      </ul>
+      <p>Los números de alrededor (0h, 1h, 2h…) son la <strong>ascensión recta</strong>, la «longitud» del cielo. Las estaciones indican cuándo se ve mejor cada constelación a primera hora de la noche.</p>
+      <p>Datos de estrellas y líneas: proyecto <a href="https://github.com/ofrohn/d3-celestial" target="_blank" rel="noopener">d3-celestial</a> de Olaf Frohn (licencia BSD).</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Planetario Estrella Polar · Proyecto de clase de Lenguajes de Marcas.</p>
+    <p>
+      <a href="noticias.xml">Noticias (RSS)</a> ·
+      <a href="https://github.com/kiravsl2018/planetario-modelo" target="_blank" rel="noopener">Repositorio en GitHub</a>
+    </p>
+    <p>Imágenes de las constelaciones: creación propia. Libre uso para este proyecto.</p>
+  </footer>
+</body>
+</html>

@@ -15,6 +15,7 @@ planetario/
 ├── index.html            → Inicio (portada)
 ├── constelaciones.html   → Contenido principal (12 tarjetas de constelaciones)
 ├── astronomos.html       → Página extra: astrónomos famosos que dibujaron el cielo
+├── mapa.html             → Página extra: mapa de las constelaciones visibles desde España
 ├── sesiones.html         → Información (tabla de horarios y preguntas frecuentes)
 ├── contacto.html         → Formulario de reserva
 ├── noticias.xml          → Canal RSS con 3 noticias
@@ -297,7 +298,21 @@ Las reglas de dentro solo se aplican si la pantalla mide 800 px o menos.
 
 ---
 
-# Parte 3: El canal RSS (noticias.xml)
+# Parte 3: La página del mapa (mapa.html)
+
+El mapa es **una sola imagen SVG** (`img/mapa-cielo.svg`) metida con `<img>`, igual que el logo. Está generada a partir de datos reales de estrellas (proyecto d3-celestial, licencia BSD, citado en la página). Tú no tienes que escribir el código del SVG: para la web es una imagen más.
+
+| Elemento | Para qué |
+|---|---|
+| `<a href="img/mapa-cielo.svg" target="_blank">` con la `<img>` dentro | Al hacer clic en la imagen, se abre el mapa en grande en otra pestaña. Un enlace puede envolver una imagen. |
+| `.mapa img { border-radius: 50% }` | Un radio del 50 % convierte una imagen cuadrada en un círculo. |
+| `.leyenda` con `display: flex` y `flex-wrap: wrap` | Pone las cajitas de la leyenda en fila y las baja de línea si no caben. |
+| `border-left: 8px solid #7fa7ff` | Un borde solo a la izquierda, que hace de «muestra de color» de cada estación. |
+
+> [!question] ¿Por qué el color del borde va en cada clase (`.invierno`...) y no en `.leyenda li`?
+> Porque `.leyenda li` tiene más **especificidad** (una clase + una etiqueta) que `.invierno` (solo una clase). Si el borde estuviera en `.leyenda li`, ganaría siempre y todos saldrían del mismo color.
+
+# Parte 4: El canal RSS (noticias.xml)
 
 > [!info] ¿Por qué antes salía solo el código?
 > Un archivo RSS no es una página web: está pensado para que lo lean programas lectores de noticias (Feedly, Thunderbird…). Por eso el navegador lo mostraba como texto sin formato. No era un error.

@@ -210,6 +210,37 @@ iframe {
   border: 0;
 }
 
+/* Mapa del cielo */
+.mapa {
+  text-align: center;
+}
+
+.mapa img {
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(127, 167, 255, 0.4);
+}
+
+/* Leyenda del mapa: cada estación lleva un borde izquierdo de su color */
+.leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.leyenda li {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: var(--color-fondo-claro);
+}
+
+.todo-el-ano { border-left: 8px solid #ffffff; }
+.invierno { border-left: 8px solid #7fa7ff; }
+.primavera { border-left: 8px solid #7ee08a; }
+.verano { border-left: 8px solid #ff9f6b; }
+.otono { border-left: 8px solid #ffd166; }
+
 /* 8. Tabla de horarios */
 table {
   width: 100%;
