@@ -112,13 +112,30 @@ section {
   margin-bottom: 40px;
 }
 
-/* Portada con imagen de fondo */
-.portada {
+/* Portada: el fondo de estrellas se queda quieto al hacer scroll */
+.inicio {
   background-image: url("../img/cielo.webp");
   background-size: cover;
-  padding: 60px 20px;
-  border-radius: var(--radio);
+  background-attachment: fixed;
+}
+
+/* La cúpula del planetario: solo se redondean las esquinas de arriba */
+.cupula {
+  background-image: url("../img/cielo.webp");
+  background-size: cover;
+  padding: 80px 20px 40px;
+  border-radius: 300px 300px 0 0;
+  border-bottom: 8px solid var(--color-secundario);
+  box-shadow: 0 0 40px rgba(127, 167, 255, 0.4);
   text-align: center;
+}
+
+/* Programa de hoy con aspecto de entrada de cine */
+.entrada {
+  background-color: rgba(27, 31, 75, 0.8);
+  border: 2px dashed var(--color-principal);
+  border-radius: var(--radio);
+  padding: 16px 24px;
 }
 
 .estrella {
@@ -303,8 +320,9 @@ footer {
     height: 220px;
   }
 
-  .portada {
-    padding: 30px 10px;
+  .cupula {
+    padding: 50px 10px 30px;
+    border-radius: 150px 150px 0 0;
   }
 
   /* La tabla se hace más compacta para que quepa en 360 px */
@@ -317,4 +335,52 @@ footer {
   main {
     padding: 10px;
   }
+}
+
+/* 13. Noticias: noticias.xml también usa esta hoja de estilos.
+   Sus etiquetas (rss, channel, item...) no existen en HTML,
+   así que estas reglas no afectan a las páginas. */
+rss {
+  display: block;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Poppins', system-ui, Arial, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+channel,
+item,
+description,
+pubDate {
+  display: block;
+}
+
+channel title {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-principal);
+}
+
+item {
+  margin-top: 20px;
+  padding: 16px;
+  border: 2px dotted var(--color-secundario);
+  border-radius: var(--radio);
+}
+
+item title {
+  font-size: 1.2rem;
+}
+
+pubDate {
+  font-size: 0.8rem;
+  color: var(--color-secundario);
+}
+
+link,
+language {
+  display: none;
 }

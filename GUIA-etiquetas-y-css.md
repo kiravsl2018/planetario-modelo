@@ -13,7 +13,8 @@ tema: Planetario Estrella Polar
 ```
 planetario/
 ├── index.html            → Inicio (portada)
-├── constelaciones.html   → Contenido principal (catálogo de tarjetas)
+├── constelaciones.html   → Contenido principal (12 tarjetas de constelaciones)
+├── astronomos.html       → Página extra: astrónomos famosos que dibujaron el cielo
 ├── sesiones.html         → Información (tabla de horarios y preguntas frecuentes)
 ├── contacto.html         → Formulario de reserva
 ├── noticias.xml          → Canal RSS con 3 noticias
@@ -61,7 +62,7 @@ La etiqueta raíz: todo va dentro. `lang="es"` indica que el idioma es español 
 La "cabeza" del documento: información que **no se ve** en la página (metadatos, título, enlaces al CSS...).
 
 ### `<body>`
-El "cuerpo": todo lo que **sí se ve** en la página.
+El "cuerpo": todo lo que **sí se ve** en la página. En `index.html` lleva `class="inicio"` para ponerle a la portada un fondo de estrellas que solo tiene esa página.
 
 ## Dentro del `<head>`
 
@@ -112,6 +113,7 @@ Como el div pero **en línea** (no rompe la línea). Lo usamos para la estrella 
 | `<h1>` … `<h3>` | Títulos por niveles. Un solo h1 por página y sin saltar (h1 → h2 → h3). |
 | `<p>` | Párrafo. |
 | `<strong>` | Texto importante (se ve en negrita). |
+| `<em>` | Texto con énfasis (se ve en cursiva). Lo usamos para títulos de libros, como *Almagesto*. |
 | `&copy;` | Entidad HTML que muestra el símbolo ©. |
 
 ## Listas
@@ -211,7 +213,7 @@ Se declaran en `:root` y se usan con `var()`. Si quiero cambiar el color princip
 | `padding` | Espacio **dentro**, entre el borde y el contenido. |
 | `border` | Borde: grosor, estilo y color (`2px dashed #fff`). Estilos usados: `solid`, `dashed` (rayas), `dotted` (puntos). |
 | `border-bottom` | Solo el borde de abajo. |
-| `border-radius` | Esquinas redondeadas. |
+| `border-radius` | Esquinas redondeadas. Con cuatro valores se pone cada esquina por separado (arriba izquierda, arriba derecha, abajo derecha, abajo izquierda). En la cúpula, `300px 300px 0 0` redondea solo las de arriba y así parece una cúpula de planetario. |
 | `border-collapse: collapse` | En tablas, une los bordes de las celdas en uno solo. |
 | `width` / `height` | Ancho y alto. |
 | `max-width` | Ancho máximo. `img { max-width: 100% }` evita que las imágenes se salgan. |
@@ -241,7 +243,8 @@ Se declaran en `:root` y se usan con `var()`. Si quiero cambiar el color princip
 | `background: linear-gradient(to right, A, B)` | Degradado de un color a otro. |
 | `background-image: url(...)` | Imagen de fondo. La ruta `../img/` sube una carpeta porque el CSS está dentro de `css/`. |
 | `background-size: cover` | La imagen de fondo cubre toda la caja. |
-| `box-shadow: x y desenfoque color` | Sombra. |
+| `background-attachment: fixed` | La imagen de fondo se queda quieta al hacer scroll: parece que el cielo está fijo y la página se mueve por encima. |
+| `box-shadow: x y desenfoque color` | Sombra. Con `0 0` (sin desplazamiento) parece un resplandor alrededor de la cúpula. |
 | `opacity` | Transparencia de todo el elemento (en la animación de la estrella). |
 | `cursor: pointer` | Muestra la manita al pasar por el botón. |
 
@@ -294,10 +297,31 @@ Las reglas de dentro solo se aplican si la pantalla mide 800 px o menos.
 
 ---
 
+# Parte 3: El canal RSS (noticias.xml)
+
+> [!info] ¿Por qué antes salía solo el código?
+> Un archivo RSS no es una página web: está pensado para que lo lean programas lectores de noticias (Feedly, Thunderbird…). Por eso el navegador lo mostraba como texto sin formato. No era un error.
+
+Para que se vea bonito al abrirlo desde el pie, en la segunda línea del XML se enlaza la **misma hoja de estilos** de la web:
+
+```xml
+<?xml-stylesheet type="text/css" href="css/estilos.css"?>
+```
+
+Al final de `estilos.css` (apartado 13) hay reglas para las etiquetas del RSS: `rss`, `channel`, `item`, `title`, `description`, `pubDate`. Como esas etiquetas no existen en HTML, no cambian nada de las páginas.
+
+| Regla | Qué hace |
+|---|---|
+| `display: block` | Las etiquetas XML no tienen estilo por defecto: todo sale seguido en una línea. Con `block` cada una va en su propia línea. |
+| `channel title` / `item title` | Selector descendiente: el título del canal y el de cada noticia. |
+| `display: none` en `link` y `language` | Oculta los datos que no queremos que se vean (la URL y el idioma). |
+
+> [!question] ¿Por qué `pubDate` y no `pubdate`?
+> En XML las mayúsculas importan, así que el selector tiene que escribirse igual que la etiqueta.
+
 # Pendiente antes de entregar
 
 - [ ] Cambiar `ID_DEL_VIDEO` por el ID real de un vídeo de YouTube sobre constelaciones.
 - [ ] Añadir `media/cielo-nocturno.mp4` (un vídeo corto con licencia libre, citando la fuente) o cambiarlo por un `<audio>`.
-- [ ] Cambiar `tuusuario` por tu usuario de GitHub en el pie y en `noticias.xml`.
 - [ ] Pasar los validadores del W3C y hacer las capturas.
 - [ ] Hacer al menos 6 commits en 3 días distintos.
