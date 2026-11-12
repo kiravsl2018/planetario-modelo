@@ -23,6 +23,7 @@ planetario/
 ├── contacto.html         → Formulario de reserva
 ├── noticias.xml          → Canal RSS con 3 noticias
 ├── css/estilos.css       → La única hoja de estilos
+├── js/script.js          → JavaScript (permitido por el profesor): 3 funciones pequeñas
 ├── img/                  → logo.svg, favicon.svg y las imágenes .webp
 └── media/                → aquí va el vídeo cielo-nocturno.mp4 (falta añadirlo)
 ```
@@ -355,6 +356,49 @@ Al final de `estilos.css` (apartado 13) hay reglas para las etiquetas del RSS: `
 
 > [!question] ¿Por qué `pubDate` y no `pubdate`?
 > En XML las mayúsculas importan, así que el selector tiene que escribirse igual que la etiqueta.
+
+# Parte 6: JavaScript (js/script.js)
+
+> [!info] El profesor ha dado permiso para usar JS
+> La web funciona igual sin él: todo lo que pide la rúbrica sigue hecho con HTML y CSS. El JS solo añade tres extras.
+
+## Cómo se enlaza
+
+```html
+<script src="js/script.js" defer></script>
+```
+
+Va en el `<head>` de todas las páginas. `defer` hace que el script espere a que se cargue todo el HTML antes de ejecutarse; si no, buscaría botones que todavía no existen.
+
+## Lo que se usa, una a una
+
+| Código | Qué hace |
+|---|---|
+| `const` | Crea una variable cuyo valor no se vuelve a cambiar. |
+| `[ "...", "..." ]` | Un **array**: una lista de valores. `datos.length` dice cuántos hay. |
+| `document.getElementById("dato")` | Busca el elemento del HTML que tiene ese `id`. |
+| `document.querySelectorAll(".filtro")` | Busca **todos** los elementos que cumplen ese selector de CSS. Devuelve una lista. |
+| `if (botonDato) { ... }` | Solo ejecuta el código si el botón existe. Como el mismo archivo se carga en todas las páginas, así no da error en las páginas que no tienen ese botón. |
+| `addEventListener("click", function () { ... })` | Ejecuta la función cuando se hace clic en el elemento. |
+| `Math.random()` | Número al azar entre 0 y 1 (sin llegar a 1). |
+| `Math.floor()` | Redondea hacia abajo. `Math.floor(Math.random() * 8)` da un número entero del 0 al 7, justo las posiciones del array. |
+| `elemento.textContent = "..."` | Cambia el texto de un elemento. |
+| `classList.toggle("apagada")` | Pone la clase si no está, o la quita si está. |
+| `classList.contains("apagada")` | Devuelve `true` si el elemento tiene esa clase. |
+| `classList.add()` / `classList.remove()` | Añade o quita una clase. |
+| `forEach(function (boton) { ... })` | Repite la función para cada elemento de una lista. |
+| `data-estacion="verano"` en el HTML y `tarjeta.dataset.estacion` en el JS | Los atributos `data-` guardan datos propios en una etiqueta, y el JS los lee con `dataset`. |
+| `===` | Compara si dos valores son exactamente iguales. |
+| `\|\|` | «O»: se cumple si se cumple una de las dos condiciones. |
+
+## Las tres funciones
+
+1. **Otro dato curioso** (inicio): elige una posición al azar del array `datos` y pone ese texto en el párrafo `#dato`.
+2. **Apagar las luces** (inicio): pone o quita la clase `apagada` en el `<body>`. El CSS hace el resto: con `.apagada` todo baja a `opacity: 0.15` menos la cúpula, que brilla más. El cambio es suave por la `transition: opacity 0.6s`.
+3. **Filtrar por estación** (constelaciones): cada tarjeta tiene `data-estacion`. Al pulsar un botón, el JS compara la estación del botón con la de cada tarjeta y le pone la clase `.oculta` (`display: none`) a las que no coinciden.
+
+> [!question] Pregunta típica de defensa: ¿por qué el JS cambia clases y no estilos?
+> Porque así el aspecto se decide en el CSS y el JS solo dice «ahora sí» o «ahora no». Si mañana quiero que la cúpula brille de otro color, solo toco el CSS.
 
 # Pendiente antes de entregar
 

@@ -9,6 +9,7 @@
   <link rel="alternate" type="application/rss+xml" title="Noticias del planetario" href="noticias.xml">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/script.js" defer></script>
 </head>
 <body>
   <header>
@@ -36,75 +37,84 @@
 
     <section>
       <h2>Nuestras constelaciones favoritas</h2>
+      <p>Elige una estación para ver solo las constelaciones que mejor se ven en ella:</p>
+      <div class="filtros">
+        <button type="button" class="filtro" data-filtro="todas">Todas</button>
+        <button type="button" class="filtro" data-filtro="invierno">Invierno</button>
+        <button type="button" class="filtro" data-filtro="primavera">Primavera</button>
+        <button type="button" class="filtro" data-filtro="verano">Verano</button>
+        <button type="button" class="filtro" data-filtro="otono">Otoño</button>
+        <button type="button" class="filtro" data-filtro="todo">Todo el año</button>
+      </div>
       <div class="tarjetas">
-        <article class="tarjeta">
+        <article class="tarjeta" data-estacion="invierno">
           <img src="img/orion.webp" alt="Dibujo de las estrellas de Orión unidas por líneas azules sobre un cielo nocturno" width="600" height="400">
           <h3>Orión</h3>
           <p><strong>El cazador</strong></p>
           <p>Se reconoce por las tres estrellas en línea de su cinturón. Su estrella roja, Betelgeuse, es tan grande que, si estuviera en el lugar del Sol, llegaría más allá de Marte.</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta" data-estacion="todo">
           <img src="img/osa-mayor.webp" alt="Dibujo de las estrellas de Osa Mayor unidas por líneas azules sobre un cielo nocturno" width="600" height="400">
           <h3>Osa Mayor</h3>
           <p><strong>La gran osa</strong></p>
           <p>Siete de sus estrellas forman el «Carro». Si prolongas la línea de las dos últimas estrellas del carro, llegas a la Estrella Polar.</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta" data-estacion="todo">
           <img src="img/casiopea.webp" alt="Dibujo de las estrellas de Casiopea unidas por líneas azules sobre un cielo nocturno" width="600" height="400">
           <h3>Casiopea</h3>
           <p><strong>La reina</strong></p>
           <p>Tiene forma de W o de M según la estación. Desde España se ve todas las noches del año porque nunca se esconde bajo el horizonte.</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta" data-estacion="verano">
           <img src="img/escorpio.webp" alt="Dibujo de las estrellas de Escorpio unidas por líneas azules sobre un cielo nocturno" width="600" height="400">
           <h3>Escorpio</h3>
           <p><strong>El escorpión</strong></p>
           <p>Su corazón es Antares, una estrella rojiza. Su nombre significa «rival de Marte» porque los dos tienen un color parecido.</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta" data-estacion="primavera">
           <img src="img/cruz-del-sur.webp" alt="Dibujo de las estrellas de Cruz del Sur unidas por líneas azules sobre un cielo nocturno" width="600" height="400">
           <h3>Cruz del Sur</h3>
           <p><strong>La más pequeña</strong></p>
           <p>Es la constelación más pequeña de las 88. Aparece en las banderas de Australia, Brasil y Nueva Zelanda, pero desde España casi no se ve.</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta" data-estacion="primavera">
           <img src="img/leo.webp" alt="Dibujo de las estrellas de Leo unidas por líneas azules sobre un cielo nocturno" width="600" height="400">
           <h3>Leo</h3>
           <p><strong>El león</strong></p>
           <p>Su estrella más brillante es Régulo. Cada noviembre, la lluvia de estrellas de las Leónidas parece salir de esta constelación.</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta" data-estacion="invierno">
           <img src="img/tauro.webp" alt="Dibujo de las estrellas de Tauro unidas por líneas azules sobre un cielo nocturno" width="600" height="400">
           <h3>Tauro</h3>
           <p><strong>El toro</strong></p>
           <p>Su ojo rojo es la estrella Aldebarán. En su lomo está el cúmulo de las Pléyades, que en España se conoce como «las siete cabrillas».</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta" data-estacion="invierno">
           <img src="img/geminis.webp" alt="Dibujo de las estrellas de Géminis unidas por líneas azules sobre un cielo nocturno" width="600" height="400">
           <h3>Géminis</h3>
           <p><strong>Los gemelos</strong></p>
           <p>Sus dos estrellas más brillantes, Cástor y Pólux, son las cabezas de los gemelos. En diciembre, la lluvia de estrellas Gemínidas parece salir de aquí.</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta" data-estacion="verano">
           <img src="img/cisne.webp" alt="Dibujo de las estrellas de Cisne unidas por líneas azules sobre un cielo nocturno" width="600" height="400">
           <h3>Cisne</h3>
           <p><strong>La cruz del norte</strong></p>
           <p>Tiene forma de cruz y parece volar por la Vía Láctea. Su estrella Deneb forma parte del famoso Triángulo de Verano.</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta" data-estacion="verano">
           <span class="etiqueta">Nuevo</span>
           <img src="img/lira.webp" alt="Dibujo de las estrellas de Lira unidas por líneas azules sobre un cielo nocturno" width="600" height="400">
           <h3>Lira</h3>
           <p><strong>El instrumento</strong></p>
           <p>Es pequeña, pero tiene a Vega, una de las estrellas más brillantes. Dentro de unos 12 000 años, Vega será nuestra estrella polar.</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta" data-estacion="otono">
           <img src="img/pegaso.webp" alt="Dibujo de las estrellas de Pegaso unidas por líneas azules sobre un cielo nocturno" width="600" height="400">
           <h3>Pegaso</h3>
           <p><strong>El caballo alado</strong></p>
           <p>Cuatro de sus estrellas forman el «Gran Cuadrado de Pegaso», aunque una de esas cuatro pertenece en realidad a Andrómeda.</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta" data-estacion="otono">
           <span class="etiqueta">Nuevo</span>
           <img src="img/andromeda.webp" alt="Dibujo de las estrellas de Andrómeda unidas por líneas azules sobre un cielo nocturno" width="600" height="400">
           <h3>Andrómeda</h3>

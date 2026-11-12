@@ -310,6 +310,46 @@ iframe {
 .verano { border-left: 8px solid #ff9f6b; }
 .otono { border-left: 8px solid #ffd166; }
 
+/* JavaScript: botones de filtro de constelaciones */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+/* El JS pone esta clase a las tarjetas que no coinciden con el filtro */
+.oculta {
+  display: none;
+}
+
+/* JavaScript: "Apagar las luces". El JS pone la clase apagada en el body */
+header,
+nav,
+main section,
+aside,
+footer {
+  transition: opacity 0.6s;
+}
+
+.apagada header,
+.apagada nav,
+.apagada main section,
+.apagada aside,
+.apagada footer {
+  opacity: 0.15;
+}
+
+/* La cúpula sigue encendida y brilla más */
+.apagada .cupula {
+  opacity: 1;
+  box-shadow: 0 0 80px rgba(255, 209, 102, 0.5);
+}
+
+#boton-dato {
+  margin-top: 10px;
+}
+
 /* 8. Tabla de horarios */
 table {
   width: 100%;
