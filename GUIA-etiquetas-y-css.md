@@ -358,6 +358,8 @@ Al final de `estilos.css` (apartado 13) hay reglas para las etiquetas del RSS: `
 
 # Pendiente antes de entregar
 
+- [ ] Cambiar las ilustraciones (están hechas por ordenador para el modelo, **no son tuyas**) por fotos con licencia libre que descargues tú, por ejemplo de Wikimedia Commons o de la NASA, y citar el autor y la licencia de cada una en el pie.
+
 - [ ] Cambiar `ID_DEL_VIDEO` por el ID real de un vídeo de YouTube sobre constelaciones.
 - [ ] Añadir `media/cielo-nocturno.mp4` (un vídeo corto con licencia libre, citando la fuente) o cambiarlo por un `<audio>`.
 - [ ] Pasar los validadores del W3C y hacer las capturas.
