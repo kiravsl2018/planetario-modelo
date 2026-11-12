@@ -142,6 +142,20 @@ section {
   animation: brillar 2s ease-in-out infinite;
 }
 
+/* Misma animación, pero cada estrella a su ritmo */
+.lenta {
+  animation-duration: 3.5s;
+}
+
+.rapida {
+  animation-duration: 1.2s;
+}
+
+/* El título de la cúpula brilla un poco */
+.cupula h1 {
+  text-shadow: 0 0 12px rgba(255, 209, 102, 0.7);
+}
+
 .boton {
   display: inline-block;
   padding: 10px 24px;
@@ -150,6 +164,14 @@ section {
   text-decoration: none;
   font-weight: bold;
   border-radius: var(--radio);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Al pasar el ratón, el botón cambia de color poco a poco */
+.boton:hover,
+button:hover {
+  background-color: var(--color-secundario);
+  color: var(--color-texto);
 }
 
 /* 7. Tarjetas de constelaciones: Grid */
@@ -175,6 +197,53 @@ section {
 
 .tarjeta img {
   border-radius: var(--radio);
+  transition: transform 0.3s;
+}
+
+/* La imagen crece un poco al pasar el ratón por la tarjeta */
+.tarjeta:hover img {
+  transform: scale(1.05);
+}
+
+/* Mitos: imagen a la izquierda y texto a la derecha (Flexbox) */
+.mito {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: var(--color-fondo-claro);
+  border-radius: var(--radio);
+}
+
+.mito img {
+  width: 40%;
+  border-radius: var(--radio);
+}
+
+/* Galería de imágenes (Grid) */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+figure {
+  margin: 0;
+  background-color: var(--color-fondo-claro);
+  padding: 10px;
+  border-radius: var(--radio);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+figure img {
+  border-radius: var(--radio);
+}
+
+figcaption {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 6px;
 }
 
 /* Etiqueta "Nuevo" encima de la tarjeta */
@@ -259,6 +328,11 @@ td {
   text-align: left;
 }
 
+/* La fila se ilumina al pasar el ratón */
+tbody tr:hover {
+  background-color: rgba(127, 167, 255, 0.2);
+}
+
 th {
   background-color: var(--color-fondo-claro);
   color: var(--color-principal);
@@ -306,6 +380,7 @@ button {
   border: none;
   border-radius: var(--radio);
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* 10. Pie de página */
@@ -331,20 +406,46 @@ footer {
 
 /* 12. Responsive: tablet */
 @media (max-width: 800px) {
-  .tarjetas {
+  .tarjetas,
+  .galeria {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* Responsive: móvil */
 @media (max-width: 500px) {
-  .tarjetas {
+  .tarjetas,
+  .galeria {
     grid-template-columns: 1fr;
   }
 
+  /* Menú: los enlaces siguen en fila pero más pequeños */
   nav ul {
+    gap: 4px;
+    padding: 6px;
+  }
+
+  nav a {
+    padding: 4px 8px;
+    font-size: 0.85rem;
+  }
+
+  /* Logo y títulos más pequeños */
+  .logo {
+    width: 56px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  /* En los mitos, la imagen pasa arriba del texto */
+  .mito {
     flex-direction: column;
-    align-items: center;
+  }
+
+  .mito img {
+    width: 100%;
   }
 
   iframe {
@@ -365,6 +466,13 @@ footer {
 
   main {
     padding: 10px;
+  }
+}
+
+/* Pantallas grandes: el contenido puede ser un poco más ancho */
+@media (min-width: 1300px) {
+  main {
+    max-width: 1150px;
   }
 }
 
