@@ -20,8 +20,11 @@
     <ul>
       <li><a href="index.html" class="activo">Inicio</a></li>
       <li><a href="constelaciones.html">Constelaciones</a></li>
-      <li><a href="astronomos.html">Astrónomos</a></li>
       <li><a href="mapa.html">Mapa del cielo</a></li>
+      <li><a href="sistema-solar.html">Sistema solar</a></li>
+      <li><a href="mitos.html">Mitos</a></li>
+      <li><a href="astronomos.html">Astrónomos</a></li>
+      <li><a href="galeria.html">Galería</a></li>
       <li><a href="sesiones.html">Sesiones y precios</a></li>
       <li><a href="contacto.html">Contacto</a></li>
     </ul>
@@ -29,7 +32,7 @@
 
   <main>
     <section class="cupula">
-      <p class="estrella">✦ ✧ ✦</p>
+      <p><span class="estrella">✦</span> <span class="estrella lenta">✧</span> <span class="estrella rapida">✦</span></p>
       <h1>Bienvenido al Planetario Estrella Polar</h1>
       <p>Siéntate, mira hacia arriba y deja que se apaguen las luces. Descubre las constelaciones y vive una noche entre estrellas sin salir de la ciudad.</p>
       <a class="boton" href="constelaciones.html">Empezar la sesión</a>
@@ -52,6 +55,13 @@
     </section>
 
     <section>
+      <h2>Nuestra cúpula</h2>
+      <img src="img/cupula.webp" alt="Dibujo del interior de la cúpula del planetario con filas de butacas rojas y el proyector en el centro" width="600" height="400">
+      <p>La sala principal es una cúpula de 15 metros de diámetro con 120 butacas reclinables. En el centro está el proyector, que dibuja más de 9000 estrellas en el techo, las mismas que veríamos en una noche perfecta lejos de la ciudad.</p>
+      <p>Durante la sesión, un guía va explicando en directo lo que aparece en el cielo: las constelaciones, los planetas que se ven esa noche y las historias que las acompañan.</p>
+    </section>
+
+    <section>
       <h2>Lo que puedes hacer en el planetario</h2>
       <ul>
         <li>Ver sesiones en nuestra cúpula de 360 grados.</li>
@@ -69,6 +79,27 @@
       </video>
     </section>
 
+    <section>
+      <h2>Explora la web</h2>
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <h3>Constelaciones</h3>
+          <p>Doce constelaciones con sus estrellas más famosas y un dato curioso de cada una.</p>
+          <a class="boton" href="constelaciones.html">Ver</a>
+        </article>
+        <article class="tarjeta">
+          <h3>Sistema solar</h3>
+          <p>Los ocho planetas, de Mercurio a Neptuno, comparados en una tabla.</p>
+          <a class="boton" href="sistema-solar.html">Ver</a>
+        </article>
+        <article class="tarjeta">
+          <h3>Mitos</h3>
+          <p>Las leyendas que explican por qué cada constelación tiene su nombre.</p>
+          <a class="boton" href="mitos.html">Ver</a>
+        </article>
+      </div>
+    </section>
+
     <aside class="dato-curioso">
       <h2>Dato curioso</h2>
       <p>La luz de muchas estrellas que ves esta noche salió de ellas hace cientos de años. ¡Estás mirando el pasado!</p>
@@ -81,7 +112,7 @@
       <a href="noticias.xml">Noticias (RSS)</a> ·
       <a href="https://github.com/kiravsl2018/planetario-modelo" target="_blank" rel="noopener">Repositorio en GitHub</a>
     </p>
-    <p>Imágenes de las constelaciones: creación propia. Libre uso para este proyecto.</p>
+    <p>Todas las ilustraciones son de creación propia. Datos del mapa del cielo: d3-celestial (licencia BSD).</p>
   </footer>
 </body>
 </html>

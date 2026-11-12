@@ -7,6 +7,12 @@
     <description>Novedades del planetario: sesiones nuevas, eventos y cambios en la web.</description>
     <language>es-es</language>
     <item>
+      <title>Nuevas páginas: sistema solar, mitos y galería</title>
+      <link>https://kiravsl2018.github.io/planetario-modelo/sistema-solar.html</link>
+      <description>La web crece con tres secciones nuevas sobre los planetas, las leyendas de las estrellas y una galería de ilustraciones.</description>
+      <pubDate>Thu, 12 Nov 2026 12:00:00 +0100</pubDate>
+    </item>
+    <item>
       <title>Nueva sesión: las constelaciones de invierno</title>
       <link>https://kiravsl2018.github.io/planetario-modelo/sesiones.html</link>
       <description>Estrenamos una sesión dedicada a Orión, Tauro y Géminis.</description>

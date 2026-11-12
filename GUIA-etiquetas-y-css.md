@@ -16,6 +16,9 @@ planetario/
 ├── constelaciones.html   → Contenido principal (12 tarjetas de constelaciones)
 ├── astronomos.html       → Página extra: astrónomos famosos que dibujaron el cielo
 ├── mapa.html             → Página extra: mapa de las constelaciones visibles desde España
+├── sistema-solar.html    → Los 8 planetas en tarjetas y una tabla comparativa
+├── mitos.html            → Leyendas de las constelaciones (imagen + texto con Flexbox)
+├── galeria.html          → Galería de ilustraciones con figure y figcaption
 ├── sesiones.html         → Información (tabla de horarios y preguntas frecuentes)
 ├── contacto.html         → Formulario de reserva
 ├── noticias.xml          → Canal RSS con 3 noticias
@@ -151,6 +154,9 @@ Imagen. Atributos:
 
 ### `<iframe>`
 Mete otra página dentro de la tuya. Para YouTube: URL con `/embed/`, `title` descriptivo y `allowfullscreen` para poder ponerlo a pantalla completa.
+
+### `<figure>` + `<figcaption>`
+`<figure>` agrupa una imagen con su pie de foto, y `<figcaption>` es ese pie de foto. Se usan en la galería: así el texto queda unido a su imagen.
 
 ## Tabla
 
@@ -298,7 +304,23 @@ Las reglas de dentro solo se aplican si la pantalla mide 800 px o menos.
 
 ---
 
-# Parte 3: La página del mapa (mapa.html)
+# Parte 3: Retoques nuevos de CSS
+
+| Regla | Qué hace |
+|---|---|
+| `.boton:hover, button:hover` + `transition: background-color 0.3s, color 0.3s` | Los botones cambian de color poco a poco al pasar el ratón. |
+| `tbody tr:hover` | La fila de la tabla en la que está el ratón se ilumina. Solo las del `tbody`, para que la cabecera no cambie. |
+| `text-shadow: 0 0 12px rgba(...)` | Sombra del **texto**. Sin desplazamiento (`0 0`) parece un brillo alrededor de las letras. |
+| `transform: scale(1.05)` | Agranda el elemento un 5 %. En `.tarjeta:hover img`: al pasar el ratón por la tarjeta, crece su imagen. |
+| `animation-duration` | Cambia solo la duración de una animación ya puesta. Las tres estrellas usan `brillar`, pero `.lenta` y `.rapida` parpadean a distinto ritmo. |
+| `.mito` con `display: flex` | Imagen y texto en la misma fila. En el móvil, `flex-direction: column` los pone uno encima del otro. |
+| `.galeria` con `display: grid` | Rejilla de 3 columnas para la galería (2 en tablet y 1 en móvil). |
+| `@media (min-width: 1300px)` | Al revés que las otras: se aplica en pantallas **de 1300 px o más**, y deja el contenido un poco más ancho. |
+
+> [!tip] Ahora hay 3 `@media`
+> 800 px (tablet), 500 px (móvil: menú, logo y títulos más pequeños, mitos en columna) y 1300 px (pantallas grandes).
+
+# Parte 4: La página del mapa (mapa.html)
 
 El mapa es **una sola imagen SVG** (`img/mapa-cielo.svg`) metida con `<img>`, igual que el logo. Está generada a partir de datos reales de estrellas (proyecto d3-celestial, licencia BSD, citado en la página). Tú no tienes que escribir el código del SVG: para la web es una imagen más.
 
@@ -312,7 +334,7 @@ El mapa es **una sola imagen SVG** (`img/mapa-cielo.svg`) metida con `<img>`, ig
 > [!question] ¿Por qué el color del borde va en cada clase (`.invierno`...) y no en `.leyenda li`?
 > Porque `.leyenda li` tiene más **especificidad** (una clase + una etiqueta) que `.invierno` (solo una clase). Si el borde estuviera en `.leyenda li`, ganaría siempre y todos saldrían del mismo color.
 
-# Parte 4: El canal RSS (noticias.xml)
+# Parte 5: El canal RSS (noticias.xml)
 
 > [!info] ¿Por qué antes salía solo el código?
 > Un archivo RSS no es una página web: está pensado para que lo lean programas lectores de noticias (Feedly, Thunderbird…). Por eso el navegador lo mostraba como texto sin formato. No era un error.
