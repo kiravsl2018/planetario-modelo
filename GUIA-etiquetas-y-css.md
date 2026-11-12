@@ -368,7 +368,7 @@ Al final de `estilos.css` (apartado 13) hay reglas para las etiquetas del RSS: `
 <script src="js/script.js" defer></script>
 ```
 
-Va en el `<head>` de todas las páginas. `defer` hace que el script espere a que se cargue todo el HTML antes de ejecutarse; si no, buscaría botones que todavía no existen.
+Va en el `<head>` de todas las páginas. El `?v=2` del final no cambia nada del archivo: sirve para que el navegador piense que es un archivo nuevo y no use la copia antigua que tenía guardada (la caché). Cada vez que cambies el CSS o el JS, súbelo a `?v=3`, `?v=4`… `defer` hace que el script espere a que se cargue todo el HTML antes de ejecutarse; si no, buscaría botones que todavía no existen.
 
 ## Lo que se usa, una a una
 
