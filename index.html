@@ -9,6 +9,7 @@
   <link rel="alternate" type="application/rss+xml" title="Noticias del planetario" href="noticias.xml">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/script.js" defer></script>
 </head>
 <body class="inicio">
   <header>
@@ -36,6 +37,7 @@
       <h1>Bienvenido al Planetario Estrella Polar</h1>
       <p>Siéntate, mira hacia arriba y deja que se apaguen las luces. Descubre las constelaciones y vive una noche entre estrellas sin salir de la ciudad.</p>
       <a class="boton" href="constelaciones.html">Empezar la sesión</a>
+      <button type="button" id="boton-luces">Apagar las luces</button>
     </section>
 
     <section class="entrada">
@@ -102,7 +104,8 @@
 
     <aside class="dato-curioso">
       <h2>Dato curioso</h2>
-      <p>La luz de muchas estrellas que ves esta noche salió de ellas hace cientos de años. ¡Estás mirando el pasado!</p>
+      <p id="dato">La luz de muchas estrellas que ves esta noche salió de ellas hace cientos de años. ¡Estás mirando el pasado!</p>
+      <button type="button" id="boton-dato">Otro dato curioso</button>
     </aside>
   </main>
 
