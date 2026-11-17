@@ -337,25 +337,15 @@ El mapa es **una sola imagen SVG** (`img/mapa-cielo.svg`) metida con `<img>`, ig
 
 # Parte 5: El canal RSS (noticias.xml)
 
-> [!info] ¿Por qué antes salía solo el código?
-> Un archivo RSS no es una página web: está pensado para que lo lean programas lectores de noticias (Feedly, Thunderbird…). Por eso el navegador lo mostraba como texto sin formato. No era un error.
+> [!info] ¿Por qué se ve solo el código?
+> Un archivo RSS no es una página web: está pensado para que lo lean programas lectores de noticias (Feedly, Thunderbird…). Por eso el navegador lo muestra como texto sin formato. No es un error.
 
-Para que se vea bonito al abrirlo desde el pie, en la segunda línea del XML se enlaza la **misma hoja de estilos** de la web:
-
-```xml
-<?xml-stylesheet type="text/css" href="css/estilos.css"?>
-```
-
-Al final de `estilos.css` (apartado 13) hay reglas para las etiquetas del RSS: `rss`, `channel`, `item`, `title`, `description`, `pubDate`. Como esas etiquetas no existen en HTML, no cambian nada de las páginas.
-
-| Regla | Qué hace |
+| Etiqueta | Para qué |
 |---|---|
-| `display: block` | Las etiquetas XML no tienen estilo por defecto: todo sale seguido en una línea. Con `block` cada una va en su propia línea. |
-| `channel title` / `item title` | Selector descendiente: el título del canal y el de cada noticia. |
-| `display: none` en `link` y `language` | Oculta los datos que no queremos que se vean (la URL y el idioma). |
-
-> [!question] ¿Por qué `pubDate` y no `pubdate`?
-> En XML las mayúsculas importan, así que el selector tiene que escribirse igual que la etiqueta.
+| `<?xml version="1.0" encoding="UTF-8"?>` | Primera línea: dice que es un archivo XML y que usa UTF-8 (tildes y eñes). |
+| `<rss version="2.0">` | Etiqueta raíz: todo el canal va dentro. |
+| `<channel>` | El canal de noticias, con su `title`, `link`, `description` y `language`. |
+| `<item>` | Cada noticia. Lleva `title`, `link`, `description` y `pubDate` (fecha de publicación). |
 
 # Parte 6: JavaScript (js/script.js)
 
